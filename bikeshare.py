@@ -18,13 +18,13 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-    # This function is here just for testing purposes.
 
+    #   TODO: Investigate moving the lists that are used multiple times outside the function to enable a single definition and multiple uses.
     cities = ['chicago', 'new york city', 'washington']
     months = ['january', 'february', 'march', 'april', 'may', 'june', 'all']
     days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'All']
 
+    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     city = ''
     while city not in cities:
         city = input("Enter the city name you'd like to analyze.  Your options are Chicago, New York City, and Washington\n --> ").lower()
@@ -73,14 +73,12 @@ def load_data(city, month, day):
 
     #Filter by month and day if desired
     months = ['january', 'february', 'march', 'april', 'may', 'june', 'all']
-    #days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'All']
 
     if month != 'all':
         month = months.index(month) + 1
         df = df[df['Month'] == month]
 
     if day != 'All':
-        #day = days.index(day) + 1
         df = df[df['Day_of_week'] == day.title()]
 
     return df
