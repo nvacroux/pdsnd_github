@@ -128,7 +128,6 @@ def station_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
 
@@ -174,6 +173,7 @@ def user_stats(df, city):
         print('-'*40)
 
 def display_data(df):
+    """ Display raw data on bikeshare users """
     # If the user desires they can display five rows of raw data.
     see_raw = input('\nWould you like to view 5 rows of data? (yes / no):\n --> ').lower()
     if see_raw == 'yes':
@@ -194,7 +194,6 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df, city)
-
         display_data(df)
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
